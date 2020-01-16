@@ -8,6 +8,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Null;
 import java.math.BigDecimal;
 import java.time.OffsetDateTime;
 import java.util.UUID;
@@ -22,6 +24,7 @@ import java.util.UUID;
 @AllArgsConstructor
 @Builder
 public class BeerDto {
+    @Null
     private UUID id;
     private Integer version;
 
@@ -30,6 +33,7 @@ public class BeerDto {
 
     private String beerName;
 
+    @NotBlank
     private BeerStyleEnum beerStyleEnum;
 
     private Long upc;
