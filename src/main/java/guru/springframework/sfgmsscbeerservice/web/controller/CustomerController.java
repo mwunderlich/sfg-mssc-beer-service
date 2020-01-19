@@ -5,6 +5,7 @@ package guru.springframework.sfgmsscbeerservice.web.controller;
 
 import guru.springframework.sfgmsscbeerservice.services.CustomerService;
 import guru.springframework.sfgmsscbeerservice.web.model.Customer;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,6 +22,7 @@ import java.util.UUID;
 @RequestMapping("api/v1/customer")
 public class CustomerController {
 
+    @Autowired
     private final CustomerService customerService;
 
     public CustomerController(CustomerService customerService) {

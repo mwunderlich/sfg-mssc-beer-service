@@ -41,6 +41,5 @@ public class BeerLoader implements CommandLineRunner {
                     price(new BigDecimal(11.95)).
                     build());
         }
-        // Test
     }
 }
