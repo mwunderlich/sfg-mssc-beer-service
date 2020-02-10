@@ -4,9 +4,6 @@ import guru.springframework.sfgmsscbeerservice.web.model.BeerDto;
 
 import java.util.UUID;
 
-/**
- * Created by jt on 2019-06-06.
- */
 public interface BeerService {
     BeerDto getById(UUID beerId);
 

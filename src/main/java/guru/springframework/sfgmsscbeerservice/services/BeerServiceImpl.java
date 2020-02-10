@@ -6,9 +6,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.UUID;
 
-/**
- * Created by jt on 2019-06-06.
- */
 @RequiredArgsConstructor
 @Service
 public class BeerServiceImpl implements BeerService {
