@@ -5,7 +5,6 @@ package guru.springframework.sfgmsscbeerservice.web.controller;
 
 import guru.springframework.sfgmsscbeerservice.services.CustomerService;
 import guru.springframework.sfgmsscbeerservice.web.model.Customer;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,7 +21,6 @@ import java.util.UUID;
 @RequestMapping("api/v1/customer")
 public class CustomerController {
 
-    @Autowired
     private final CustomerService customerService;
 
     public CustomerController(CustomerService customerService) {
@@ -30,26 +28,26 @@ public class CustomerController {
     }
 
     @GetMapping({"/{customerId}"})
-    public ResponseEntity<Customer> getBeer(@PathVariable("customerId") UUID customerId) {
-        Customer customer = customerService.getCustomerById(customerId);
-        return new ResponseEntity<>(customer, HttpStatus.OK);
+    public ResponseEntity<CustomerDto> getBeer(@PathVariable("customerId") UUID customerId) {
+        CustomerDto customerDto = customerService.getCustomerById(customerId);
+        return new ResponseEntity<>(customerDto, HttpStatus.OK);
     }
 
     @PostMapping
-    public ResponseEntity handlePost(@RequestBody Customer customer) {
-        Customer savedCustomer = customerService.saveNewCustomer(customer);
+    public ResponseEntity handlePost(@RequestBody CustomerDto customerDto) {
+        CustomerDto savedCustomerDto = customerService.saveNewCustomer(customerDto);
 
         HttpHeaders headers = new HttpHeaders();
         // TODO: Add server name here to URL
-        headers.add("Location", "api/v1/customer/" + savedCustomer.getId().toString());
+        headers.add("Location", "api/v1/customer/" + savedCustomerDto.getId().toString());
 
         return new ResponseEntity(headers, HttpStatus.CREATED);
     }
 
     @PutMapping("/{customerId}")
-    public ResponseEntity handleUpdate(@PathVariable("customerId") UUID customerId, @RequestBody Customer customer) {
+    public ResponseEntity handleUpdate(@PathVariable("customerId") UUID customerId, @RequestBody CustomerDto customerDto) {
 
-        customerService.updateCustomer(customerId, customer);
+        customerService.updateCustomer(customerId, customerDto);
 
         return new ResponseEntity(HttpStatus.OK);
     }
