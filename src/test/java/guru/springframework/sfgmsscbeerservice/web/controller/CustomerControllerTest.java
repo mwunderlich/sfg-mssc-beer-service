@@ -1,7 +1,7 @@
 package guru.springframework.sfgmsscbeerservice.web.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import guru.springframework.sfgmsscbeerservice.web.model.Customer;
+import guru.springframework.sfgmsscbeerservice.web.model.CustomerDto;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -31,7 +31,7 @@ class CustomerControllerTest {
 
     @Test
     void saveNewCustomer() throws Exception {
-        Customer customer = Customer.builder().customerName("test 1").build();
+        CustomerDto customer = CustomerDto.builder().customerName("test 1").build();
         mockmvc.perform(post("/api/vi/Customer/", customer)).andExpect(status().isOk());
     }
 
