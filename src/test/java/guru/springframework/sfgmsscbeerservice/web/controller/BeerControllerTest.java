@@ -18,8 +18,14 @@ import org.springframework.test.web.servlet.MockMvc;
 import java.math.BigDecimal;
 import java.util.UUID;
 
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.document;
+import static org.springframework.restdocs.mockmvc.RestDocumentationRequestBuilders.get;
+import static org.springframework.restdocs.payload.PayloadDocumentation.fieldWithPath;
+import static org.springframework.restdocs.payload.PayloadDocumentation.responseFields;
+import static org.springframework.restdocs.request.RequestDocumentation.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
+//import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 
 @ExtendWith(RestDocumentationExtension.class)
 @AutoConfigureRestDocs
@@ -38,8 +44,29 @@ class BeerControllerTest {
 
     @Test
     void getBeerById() throws Exception {
-        mockmvc.perform(get("/api/v1/beer/" + UUID.randomUUID().toString()).accept(MediaType.APPLICATION_JSON))
-                .andExpect(status().isOk());
+        mockmvc.perform(get("/api/v1/beer/{beerId}" + UUID.randomUUID().toString())
+                .param("iscold", "yes")     // request parameter
+                .accept(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andDo(document("v1/beer",
+                        pathParameters(
+                            parameterWithName("beerId").description("UUID of beer to get.")
+                        ),
+                        requestParameters(
+                                parameterWithName("iscold").description("beer is cold")
+                        ),
+                        responseFields(
+                                fieldWithPath("id").description("Id of beer"),
+                                fieldWithPath("version").description("Version of the beer."),
+                                fieldWithPath("createdDate").description("Creation of the entry"),
+                                fieldWithPath("lastModifiedDate").description("Last modification"),
+                                fieldWithPath("beerName").description("Name of the beer."),
+                                fieldWithPath("beerStyle").description("Style of the beer."),
+                                fieldWithPath("upc").description("UPC of the beer."),
+                                fieldWithPath("price").description("Price of the beer."),
+                                fieldWithPath("quantityOnHand").description("Quantity on hand.")
+                        )
+                ));
     }
 
     @Test
