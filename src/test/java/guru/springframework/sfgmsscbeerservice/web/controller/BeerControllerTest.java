@@ -32,7 +32,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 //import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 
 @ExtendWith(RestDocumentationExtension.class)
-@AutoConfigureRestDocs
+@AutoConfigureRestDocs(uriScheme = "http", uriHost = "localhost", uriPort = 8080)
 @WebMvcTest(BeerController.class)
 @ComponentScan(basePackages = "guru.springframework.sfgmsscbeerservice.web.mappers")
 class BeerControllerTest {
