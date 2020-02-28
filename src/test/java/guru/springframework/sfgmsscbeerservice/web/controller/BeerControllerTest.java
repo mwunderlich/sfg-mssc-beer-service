@@ -1,9 +1,10 @@
 package guru.springframework.sfgmsscbeerservice.web.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import guru.springframework.sfgmsscbeerservice.exceptions.NotFoundException;
 import guru.springframework.sfgmsscbeerservice.repositories.BeerRepository;
+import guru.springframework.sfgmsscbeerservice.services.BeerService;
 import guru.springframework.sfgmsscbeerservice.web.model.BeerDto;
-import guru.springframework.sfgmsscbeerservice.web.model.BeerStyleEnum;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +22,9 @@ import org.springframework.util.StringUtils;
 import java.math.BigDecimal;
 import java.util.UUID;
 
+import static guru.springframework.sfgmsscbeerservice.bootstrap.BeerLoader.BEER_UPC_1;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.BDDMockito.given;
 import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.document;
 import static org.springframework.restdocs.mockmvc.RestDocumentationRequestBuilders.get;
 import static org.springframework.restdocs.mockmvc.RestDocumentationRequestBuilders.post;
@@ -46,9 +50,14 @@ class BeerControllerTest {
     @MockBean
     BeerRepository beerRepository;
 
+    @MockBean
+    BeerService beerService;
+
     @Test
     void getBeerById() throws Exception {
         final ConstrainedFields fields = new ConstrainedFields(BeerDto.class);
+
+        given(beerService.getById(any())).willReturn(getValidBeerDto());
 
         mockmvc.perform(get("/api/v1/beer/{beerId}" + UUID.randomUUID().toString())
                 .param("iscold", "yes")     // request parameter
@@ -101,7 +110,8 @@ class BeerControllerTest {
     }
 
     @Test
-    void updateBeer() {
+    void updateBeer() throws NotFoundException {
+        given(beerService.updateBeer(any(), any())).willReturn(getValidBeerDto());
     }
 
     private BeerDto getValidBeerDto() {
@@ -110,7 +120,7 @@ class BeerControllerTest {
                 .beerStyleEnum(BeerStyleEnum.STOUT)
                 .price(new BigDecimal("12.99"))
                 .quantityOnHand(4)
-                .upc(123456l)
+                .upc(BEER_UPC_1)
                 .build();
 
         return validBeer;
