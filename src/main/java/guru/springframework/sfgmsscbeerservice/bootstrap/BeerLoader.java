@@ -3,11 +3,10 @@ package guru.springframework.sfgmsscbeerservice.bootstrap;
 import guru.springframework.sfgmsscbeerservice.domain.Beer;
 import guru.springframework.sfgmsscbeerservice.repositories.BeerRepository;
 import org.springframework.boot.CommandLineRunner;
-import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
 
-@Component
+//@Component
 public class BeerLoader implements CommandLineRunner {
 
     public static final String BEER_UPC_1 = "1234578";
