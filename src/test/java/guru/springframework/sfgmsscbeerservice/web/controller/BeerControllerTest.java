@@ -5,6 +5,7 @@ import guru.springframework.sfgmsscbeerservice.exceptions.NotFoundException;
 import guru.springframework.sfgmsscbeerservice.repositories.BeerRepository;
 import guru.springframework.sfgmsscbeerservice.services.BeerService;
 import guru.springframework.sfgmsscbeerservice.web.model.BeerDto;
+import guru.springframework.sfgmsscbeerservice.web.model.BeerStyleEnum;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,8 +29,12 @@ import static org.mockito.BDDMockito.given;
 import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.document;
 import static org.springframework.restdocs.mockmvc.RestDocumentationRequestBuilders.get;
 import static org.springframework.restdocs.mockmvc.RestDocumentationRequestBuilders.post;
-import static org.springframework.restdocs.payload.PayloadDocumentation.*;
-import static org.springframework.restdocs.request.RequestDocumentation.*;
+import static org.springframework.restdocs.payload.PayloadDocumentation.fieldWithPath;
+import static org.springframework.restdocs.payload.PayloadDocumentation.requestFields;
+import static org.springframework.restdocs.payload.PayloadDocumentation.responseFields;
+import static org.springframework.restdocs.request.RequestDocumentation.parameterWithName;
+import static org.springframework.restdocs.request.RequestDocumentation.pathParameters;
+import static org.springframework.restdocs.request.RequestDocumentation.requestParameters;
 import static org.springframework.restdocs.snippet.Attributes.key;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -117,7 +122,7 @@ class BeerControllerTest {
     private BeerDto getValidBeerDto() {
         BeerDto validBeer = BeerDto.builder()
                 .beerName("Beer1")
-                .beerStyleEnum(BeerStyleEnum.STOUT)
+                .beerStyleEnum(BeerStyleEnum.LAGER)
                 .price(new BigDecimal("12.99"))
                 .quantityOnHand(4)
                 .upc(BEER_UPC_1)
