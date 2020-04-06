@@ -43,7 +43,7 @@ public class BeerDto {
     private String beerName;
 
     @NotBlank
-    private BeerStyleEnum beerStyleEnum;
+    private BeerStyleEnum beerStyle;
 
     @NotNull
     private String upc;

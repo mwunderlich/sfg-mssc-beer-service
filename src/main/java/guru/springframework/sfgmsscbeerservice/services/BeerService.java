@@ -9,13 +9,13 @@ import org.springframework.data.domain.PageRequest;
 import java.util.UUID;
 
 public interface BeerService {
-    BeerPagedList listBeers(String beerName, BeerStyleEnum beerStyle, PageRequest pageRequest);
+    BeerPagedList listBeers(String beerName, BeerStyleEnum beerStyle, PageRequest pageRequest, Boolean showInventoryOnHand);
 
-    BeerDto getById(UUID beerId) throws NotFoundException;
+    BeerDto getById(UUID beerId, Boolean showInventoryOnHand) throws NotFoundException;
 
     BeerDto saveNewBeer(BeerDto beerDto);
 
     BeerDto updateBeer(UUID beerId, BeerDto beerDto) throws NotFoundException;
 
-    void deleteBeerById(UUID beerId);
+//    void deleteBeerById(UUID beerId);
 }
