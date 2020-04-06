@@ -25,6 +25,7 @@ import java.util.UUID;
 
 import static guru.springframework.sfgmsscbeerservice.bootstrap.BeerLoader.BEER_UPC_1;
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyBoolean;
 import static org.mockito.BDDMockito.given;
 import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.document;
 import static org.springframework.restdocs.mockmvc.RestDocumentationRequestBuilders.get;
@@ -62,7 +63,7 @@ class BeerControllerTest {
     void getBeerById() throws Exception {
         final ConstrainedFields fields = new ConstrainedFields(BeerDto.class);
 
-        given(beerService.getById(any())).willReturn(getValidBeerDto());
+        given(beerService.getById(any(), anyBoolean())).willReturn(getValidBeerDto());
 
         mockmvc.perform(get("/api/v1/beer/{beerId}" + UUID.randomUUID().toString())
                 .param("iscold", "yes")     // request parameter
@@ -122,7 +123,7 @@ class BeerControllerTest {
     private BeerDto getValidBeerDto() {
         BeerDto validBeer = BeerDto.builder()
                 .beerName("Beer1")
-                .beerStyleEnum(BeerStyleEnum.LAGER)
+                .beerStyle(BeerStyleEnum.LAGER)
                 .price(new BigDecimal("12.99"))
                 .quantityOnHand(4)
                 .upc(BEER_UPC_1)
