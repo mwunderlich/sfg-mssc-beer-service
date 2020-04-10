@@ -17,5 +17,7 @@ public interface BeerService {
 
     BeerDto updateBeer(UUID beerId, BeerDto beerDto) throws NotFoundException;
 
+    BeerDto getByUpc(String upc);
+
 //    void deleteBeerById(UUID beerId);
 }
