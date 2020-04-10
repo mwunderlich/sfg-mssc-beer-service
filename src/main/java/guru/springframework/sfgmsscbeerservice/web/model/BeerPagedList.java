@@ -10,6 +10,7 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -17,7 +18,9 @@ import java.util.List;
  *
  * @author Martin Wunderlich
  */
-public class BeerPagedList extends PageImpl<BeerDto> {
+public class BeerPagedList extends PageImpl<BeerDto> implements Serializable {
+
+    static final long serialVersionUID = 1113164597200569323L;
 
     @JsonCreator(mode = JsonCreator.Mode.PROPERTIES)
     public BeerPagedList(@JsonProperty("content") List<BeerDto> content,
