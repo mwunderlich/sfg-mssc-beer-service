@@ -2,11 +2,14 @@ package guru.springframework.sfgmsscbeerservice.bootstrap;
 
 import guru.springframework.sfgmsscbeerservice.domain.Beer;
 import guru.springframework.sfgmsscbeerservice.repositories.BeerRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
 
-//@Component
+@RequiredArgsConstructor
+@Component
 public class BeerLoader implements CommandLineRunner {
 
     public static final String BEER_UPC_1 = "1234578";
@@ -15,9 +18,9 @@ public class BeerLoader implements CommandLineRunner {
 
     private final BeerRepository beerRepository;
 
-    public BeerLoader(BeerRepository beerRepository) {
-        this.beerRepository = beerRepository;
-    }
+//    public BeerLoader(BeerRepository beerRepository) {
+//        this.beerRepository = beerRepository;
+//    }
 
     @Override
     public void run(String... args) throws Exception {
