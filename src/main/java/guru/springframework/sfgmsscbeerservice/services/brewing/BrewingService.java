@@ -1,7 +1,7 @@
 /*
  * Copyright (c) by censhare AG
  */
-package guru.springframework.sfgmsscbeerservice.services;
+package guru.springframework.sfgmsscbeerservice.services.brewing;
 
 import guru.springframework.sfgmsscbeerservice.domain.Beer;
 import guru.springframework.sfgmsscbeerservice.events.BrewBeerEvent;
