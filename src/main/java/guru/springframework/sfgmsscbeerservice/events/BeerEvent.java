@@ -4,9 +4,10 @@
 package guru.springframework.sfgmsscbeerservice.events;
 
 import guru.springframework.sfgmsscbeerservice.web.model.BeerDto;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
-import lombok.RequiredArgsConstructor;
+import lombok.NoArgsConstructor;
 
 /**
  * beer event
@@ -14,11 +15,12 @@ import lombok.RequiredArgsConstructor;
  * @author Martin Wunderlich
  */
 @Data
-@RequiredArgsConstructor
+@AllArgsConstructor
 @Builder
+@NoArgsConstructor
 public class BeerEvent {
 
     static final long serialVersionUID = 5333452867634730824L;
 
-    private final BeerDto beerDto;
+    private BeerDto beerDto;
 }

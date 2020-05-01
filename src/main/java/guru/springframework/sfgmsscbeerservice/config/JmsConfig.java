@@ -3,6 +3,7 @@
  */
 package guru.springframework.sfgmsscbeerservice.config;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jms.support.converter.MappingJackson2MessageConverter;
@@ -21,7 +22,7 @@ public class JmsConfig {
     public static final String NEW_INVENTORY_QUEUE = "new-inventory-queue";
 
     @Bean
-    public MessageConverter jacksonJmsmessageConverter() {
+    public MessageConverter jacksonJmsmessageConverter(ObjectMapper objectMapper) {
         MappingJackson2MessageConverter converter = new MappingJackson2MessageConverter();
         converter.setTargetType(MessageType.TEXT);
         converter.setTypeIdPropertyName("_type");
