@@ -1,8 +1,8 @@
 package guru.springframework.sfgmsscbeerservice.web.mappers;
 
+import guru.sfg.common.events.BeerDto;
 import guru.springframework.sfgmsscbeerservice.domain.Beer;
 import guru.springframework.sfgmsscbeerservice.services.inventory.BeerInventoryService;
-import guru.springframework.sfgmsscbeerservice.web.model.BeerDto;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**

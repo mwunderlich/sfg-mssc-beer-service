@@ -1,9 +1,8 @@
 /*
  * Copyright (c) by censhare AG
  */
-package guru.springframework.sfgmsscbeerservice.events;
+package guru.sfg.common.events;
 
-import guru.springframework.sfgmsscbeerservice.web.model.BeerDto;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

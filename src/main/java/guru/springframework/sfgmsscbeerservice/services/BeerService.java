@@ -1,7 +1,7 @@
 package guru.springframework.sfgmsscbeerservice.services;
 
+import guru.sfg.common.events.BeerDto;
 import guru.springframework.sfgmsscbeerservice.exceptions.NotFoundException;
-import guru.springframework.sfgmsscbeerservice.web.model.BeerDto;
 import guru.springframework.sfgmsscbeerservice.web.model.BeerPagedList;
 import guru.springframework.sfgmsscbeerservice.web.model.BeerStyleEnum;
 import org.springframework.data.domain.PageRequest;

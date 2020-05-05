@@ -1,9 +1,7 @@
 /*
  * Copyright (c) by censhare AG
  */
-package guru.springframework.sfgmsscbeerservice.events;
-
-import guru.springframework.sfgmsscbeerservice.web.model.BeerDto;
+package guru.sfg.common.events;
 
 /**
  * New inventory
