@@ -1,12 +1,12 @@
 package guru.springframework.sfgmsscbeerservice.services;
 
-import guru.sfg.common.events.BeerDto;
+import guru.sfg.brewery.events.BeerDto;
+import guru.sfg.brewery.model.BeerPagedList;
+import guru.sfg.brewery.model.BeerStyleEnum;
 import guru.springframework.sfgmsscbeerservice.domain.Beer;
 import guru.springframework.sfgmsscbeerservice.exceptions.NotFoundException;
 import guru.springframework.sfgmsscbeerservice.repositories.BeerRepository;
 import guru.springframework.sfgmsscbeerservice.web.mappers.BeerMapper;
-import guru.springframework.sfgmsscbeerservice.web.model.BeerPagedList;
-import guru.springframework.sfgmsscbeerservice.web.model.BeerStyleEnum;
 import lombok.RequiredArgsConstructor;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;

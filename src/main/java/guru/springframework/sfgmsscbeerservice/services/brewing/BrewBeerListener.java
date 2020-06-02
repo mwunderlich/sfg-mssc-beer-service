@@ -3,8 +3,8 @@
  */
 package guru.springframework.sfgmsscbeerservice.services.brewing;
 
-import guru.sfg.common.events.BeerDto;
-import guru.sfg.common.events.NewInventoryEvent;
+import guru.sfg.brewery.events.BeerDto;
+import guru.sfg.brewery.events.NewInventoryEvent;
 import guru.springframework.sfgmsscbeerservice.config.JmsConfig;
 import guru.springframework.sfgmsscbeerservice.domain.Beer;
 import guru.springframework.sfgmsscbeerservice.events.BrewBeerEvent;

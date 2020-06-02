@@ -3,7 +3,7 @@
  */
 package guru.springframework.sfgmsscbeerservice.services;
 
-import guru.springframework.sfgmsscbeerservice.web.model.CustomerDto;
+import guru.sfg.brewery.model.CustomerDto;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 

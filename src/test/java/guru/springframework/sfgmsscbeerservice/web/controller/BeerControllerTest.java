@@ -1,11 +1,11 @@
 package guru.springframework.sfgmsscbeerservice.web.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import guru.sfg.common.events.BeerDto;
+import guru.sfg.brewery.events.BeerDto;
+import guru.sfg.brewery.model.BeerStyleEnum;
 import guru.springframework.sfgmsscbeerservice.exceptions.NotFoundException;
 import guru.springframework.sfgmsscbeerservice.repositories.BeerRepository;
 import guru.springframework.sfgmsscbeerservice.services.BeerService;
-import guru.springframework.sfgmsscbeerservice.web.model.BeerStyleEnum;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;

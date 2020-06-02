@@ -3,8 +3,8 @@
  */
 package guru.springframework.sfgmsscbeerservice.events;
 
-import guru.sfg.common.events.BeerDto;
-import guru.sfg.common.events.BeerEvent;
+import guru.sfg.brewery.events.BeerDto;
+import guru.sfg.brewery.events.BeerEvent;
 import lombok.NoArgsConstructor;
 
 /**

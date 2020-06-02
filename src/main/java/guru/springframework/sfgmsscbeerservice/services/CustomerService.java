@@ -1,6 +1,6 @@
 package guru.springframework.sfgmsscbeerservice.services;
 
-import guru.springframework.sfgmsscbeerservice.web.model.CustomerDto;
+import guru.sfg.brewery.model.CustomerDto;
 
 import java.util.UUID;
 

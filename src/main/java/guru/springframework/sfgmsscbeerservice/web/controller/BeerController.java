@@ -3,11 +3,11 @@
  */
 package guru.springframework.sfgmsscbeerservice.web.controller;
 
-import guru.sfg.common.events.BeerDto;
+import guru.sfg.brewery.events.BeerDto;
+import guru.sfg.brewery.model.BeerPagedList;
+import guru.sfg.brewery.model.BeerStyleEnum;
 import guru.springframework.sfgmsscbeerservice.exceptions.NotFoundException;
 import guru.springframework.sfgmsscbeerservice.services.BeerService;
-import guru.springframework.sfgmsscbeerservice.web.model.BeerPagedList;
-import guru.springframework.sfgmsscbeerservice.web.model.BeerStyleEnum;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpStatus;

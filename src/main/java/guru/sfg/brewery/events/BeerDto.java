@@ -1,10 +1,10 @@
 /*
  * Copyright (c) by censhare AG
  */
-package guru.sfg.common.events;
+package guru.sfg.brewery.events;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import guru.springframework.sfgmsscbeerservice.web.model.BeerStyleEnum;
+import guru.sfg.brewery.model.BeerStyleEnum;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

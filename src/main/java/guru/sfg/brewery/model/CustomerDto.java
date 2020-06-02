@@ -1,7 +1,7 @@
 /*
  * Copyright (c) by censhare AG
  */
-package guru.springframework.sfgmsscbeerservice.web.model;
+package guru.sfg.brewery.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

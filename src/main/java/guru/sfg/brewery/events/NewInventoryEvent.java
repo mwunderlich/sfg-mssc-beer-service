@@ -1,7 +1,7 @@
 /*
  * Copyright (c) by censhare AG
  */
-package guru.sfg.common.events;
+package guru.sfg.brewery.events;
 
 /**
  * New inventory
